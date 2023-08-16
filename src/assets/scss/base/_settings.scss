@@ -1,0 +1,28 @@
+// Breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 768px,
+  md: 1024px,
+  desktop: 1280px,
+  fhd: 1920px
+);
+
+// Fonts
+$font-family-main: 'Montserrat';
+$font-base: $font-family-main, Arial, Helvetica, sans-serif;
+
+// Colors
+$white: #FFFFFF;
+$black: #000000;
+
+$bg-primary: #120C17;
+
+$color-primary: $white;
+$color-secondary: #7D7781;
+
+$color-accent: #FF9839;
+
+$color-success: #29C226;
+$color-pending: #5398FF;
+$color-danger: #FA3939;
+$color-warning: #FFCE4F;

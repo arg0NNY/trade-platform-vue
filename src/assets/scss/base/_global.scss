@@ -1,0 +1,11 @@
+@import "settings";
+
+* {
+  font-family: $font-base;
+  font-weight: 500;
+  color: $color-primary;
+}
+
+body {
+  background: $bg-primary;
+}
