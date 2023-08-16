@@ -13,12 +13,16 @@ export interface User {
   createdAt: string
 }
 
-export type TradeType = 'gold' | 'silver' | 'platinum'
-export type TradeStatus = 'confirmed' | 'paid' | 'completed' | 'declined'
+export enum TradeStatus {
+  Confirmed,
+  Paid,
+  Completed,
+  Declined
+}
 export interface Trade {
   id: number,
   createdAt: string,
-  type: TradeType,
+  type: 'gold',
   name: string,
   seller: Pick<User, 'id' | 'username'>,
   status: TradeStatus,
