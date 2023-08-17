@@ -7,5 +7,29 @@
 }
 
 body {
-  background: $bg-primary;
+  padding-top: 127px;
+  position: relative;
+  background-color: $bg-primary;
+  background-image: url("@/assets/images/sparks 2.png"), url("@/assets/images/sparks 1.png");
+  background-repeat: no-repeat, no-repeat;
+  background-position: 0 132px, top 402px right 0;
+  background-size: 915px, 1012px;
+}
+
+.container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1660px;
+  padding: 0 20px;
+  box-sizing: content-box;
+
+  @include media-breakpoint-down(desktop) {
+    max-width: 994px;
+  }
+  @include media-breakpoint-down(md) {
+    max-width: 738px;
+  }
+  @include media-breakpoint-down(sm) {
+    max-width: 430px;
+  }
 }
