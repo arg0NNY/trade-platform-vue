@@ -46,7 +46,7 @@ const props = withDefaults(
     &::after {
       content: '';
       position: absolute;
-      right: 0;
+      right: -1px;
       top: 50%;
       transform: translateY(-50%);
       width: 2px;

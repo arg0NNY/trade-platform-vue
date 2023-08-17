@@ -23,15 +23,6 @@ const props = defineProps<{
   font-size: 14px;
   font-weight: 500;
 
-  &__icon {
-    flex-shrink: 0;
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: currentColor;
-    filter: drop-shadow(0px 0px 5px currentColor);
-  }
-
   &--success {
     color: $color-success;
   }
@@ -43,6 +34,15 @@ const props = defineProps<{
   }
   &--danger {
     color: $color-danger;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: currentColor;
+    box-shadow: 0 0 5px currentColor;
   }
 }
 </style>
