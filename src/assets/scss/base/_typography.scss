@@ -1,11 +1,21 @@
+@import "mixins/includes";
 
 .page-title {
   font-size: 30px;
   font-weight: 700;
   line-height: 45px;
+
+  @include media-breakpoint-down(desktop) {
+    font-size: 25px;
+    line-height: 35px;
+  }
 }
 
 .title {
   font-size: 25px;
   font-weight: 700;
+
+  @include media-breakpoint-down(desktop) {
+    font-size: 18px;
+  }
 }

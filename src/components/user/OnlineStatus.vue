@@ -9,7 +9,3 @@ const props = defineProps<{
   online: boolean
 }>()
 </script>
-
-<style scoped lang="scss">
-
-</style>

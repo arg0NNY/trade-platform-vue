@@ -10,6 +10,7 @@ const props = defineProps<{
 
 <style scoped lang="scss">
 @import "@/assets/scss/base/settings";
+@import "@/assets/scss/base/mixins/includes";
 
 .nav-tab {
   font-size: 16px;
@@ -17,6 +18,9 @@ const props = defineProps<{
   color: $color-secondary;
   padding: 20px 0;
   position: relative;
+  @include media-breakpoint-down(desktop) {
+    font-size: 14px;
+  }
 
   &--active {
     color: $color-primary;

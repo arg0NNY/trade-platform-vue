@@ -19,10 +19,16 @@ const props = withDefaults(
 
 <style scoped lang="scss">
 @import "@/assets/scss/base/settings";
+@import "@/assets/scss/base/mixins/includes";
 
 .stats-item {
   &.box {
     padding: 17px 20px;
+
+    @include media-breakpoint-down(desktop) {
+      padding: 12px 20px;
+      border-radius: 15px;
+    }
   }
   &, &__value {
     display: flex;
@@ -33,11 +39,19 @@ const props = withDefaults(
     font-size: 16px;
     font-weight: 500;
     color: $color-secondary;
+
+    @include media-breakpoint-down(desktop) {
+      font-size: 14px;
+    }
   }
   &__value {
     font-size: 18px;
     font-weight: 600;
     color: $color-primary;
+
+    @include media-breakpoint-down(desktop) {
+      font-size: 16px;
+    }
   }
 }
 </style>

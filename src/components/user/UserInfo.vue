@@ -30,6 +30,7 @@ const props = defineProps<{
 
 <style scoped lang="scss">
 @import "@/assets/scss/base/settings";
+@import "@/assets/scss/base/mixins/includes";
 
 .user-info {
   display: grid;
@@ -47,10 +48,20 @@ const props = defineProps<{
     display: flex;
     justify-content: center;
     align-items: center;
+    @include media-breakpoint-down(desktop) {
+      width: 50px;
+      height: 50px;
+      border-radius: 15px;
+    }
 
     :deep(svg) {
       width: 34px;
       height: 34px;
+
+      @include media-breakpoint-down(desktop) {
+        width: 24px;
+        height: 24px;
+      }
     }
   }
   &__content {
@@ -61,11 +72,17 @@ const props = defineProps<{
   &__username {
     font-size: 18px;
     font-weight: 700;
+    @include media-breakpoint-down(desktop) {
+      font-size: 14px;
+    }
   }
   &__description {
     font-size: 14px;
     font-weight: 500;
     color: $color-secondary;
+    @include media-breakpoint-down(desktop) {
+      font-size: 12px;
+    }
   }
   .user-info-reg {
     border-radius: 15px;
@@ -77,6 +94,10 @@ const props = defineProps<{
       font-weight: 500;
       line-height: 26px;
       color: $color-secondary;
+      @include media-breakpoint-down(desktop) {
+        line-height: 20px;
+        margin-bottom: 5px;
+      }
     }
     &__value {
       font-size: 14px;

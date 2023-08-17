@@ -15,6 +15,7 @@ const props = defineProps<{
 
 <style scoped lang="scss">
 @import "@/assets/scss/base/settings";
+@import "@/assets/scss/base/mixins/includes";
 
 .status {
   display: flex;
@@ -22,6 +23,9 @@ const props = defineProps<{
   gap: 10px;
   font-size: 14px;
   font-weight: 500;
+  @include media-breakpoint-down(desktop) {
+    font-size: 12px;
+  }
 
   &--success {
     color: $color-success;

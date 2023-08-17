@@ -34,11 +34,16 @@ const active = computed({
 
 <style scoped lang="scss">
 @import "@/assets/scss/base/settings";
+@import "@/assets/scss/base/mixins/includes";
 
 .nav-tabs {
   display: flex;
   align-items: flex-end;
   gap: 60px;
   border-bottom: 1px solid transparentize($color-secondary, .8);
+
+  @include media-breakpoint-down(desktop) {
+    gap: 50px;
+  }
 }
 </style>

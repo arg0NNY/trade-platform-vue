@@ -22,6 +22,7 @@ const props = withDefaults(
 
 <style scoped lang="scss">
 @import "@/assets/scss/base/settings";
+@import "@/assets/scss/base/mixins/includes";
 
 .nav-item {
   position: relative;
@@ -33,6 +34,11 @@ const props = withDefaults(
   font-size: 16px;
   font-weight: 500;
   width: 100%;
+  @include media-breakpoint-down(desktop) {
+    padding: 15px;
+    font-size: 14px;
+    border-radius: 15px;
+  }
 
   :slotted(svg) {
     width: 15px;

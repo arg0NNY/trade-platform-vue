@@ -24,6 +24,9 @@ const { user } = storeToRefs(useUserStore())
 </script>
 
 <style scoped lang="scss">
+@import "@/assets/scss/base/settings";
+@import "@/assets/scss/base/mixins/includes";
+
 .header {
   .container {
     display: flex;
@@ -31,12 +34,18 @@ const { user } = storeToRefs(useUserStore())
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 15px;
+    @include media-breakpoint-down(desktop) {
+      gap: 10px;
+    }
   }
 
   &__additional {
     display: flex;
     gap: 15px;
     align-items: center;
+    @include media-breakpoint-down(desktop) {
+      gap: 10px;
+    }
   }
 }
 </style>

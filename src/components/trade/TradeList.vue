@@ -32,6 +32,7 @@ const props = defineProps<{
 
 <style scoped lang="scss">
 @import "@/assets/scss/base/settings";
+@import "@/assets/scss/base/mixins/includes";
 
 .trade-list {
   width: 100%;
@@ -39,12 +40,24 @@ const props = defineProps<{
   border-spacing: 0 10px;
   margin-top: 20px;
 
+  thead {
+    @include media-breakpoint-down(desktop) {
+      display: none;
+    }
+  }
   th {
     text-align: start;
     padding: 10px 20px;
     font-size: 14px;
     font-weight: 500;
     color: $color-secondary;
+  }
+
+  tbody {
+    @include media-breakpoint-down(desktop) {
+      display: grid;
+      gap: 10px;
+    }
   }
 }
 </style>

@@ -4,6 +4,7 @@
     <td>{{ dayjs(trade.createdAt).format('DD.MM.YYYY H:mm') }}</td>
     <td class="trade-item__type">Золото</td>
     <td class="trade-item__name"><span><IconGold />{{ trade.name }}</span></td>
+    <td class="trade-item__separator"></td>
     <td>{{ trade.seller.username }}</td>
     <td><Status :type="tradeStatusNormalized[trade.status]">{{ tradeStatusName[trade.status] }}</Status></td>
     <td class="trade-item__price">{{ trade.price.amount }} <span>{{ trade.price.currency }}</span></td>
@@ -25,6 +26,7 @@ const props = defineProps<{
 
 <style scoped lang="scss">
 @import "@/assets/scss/base/settings";
+@import "@/assets/scss/base/mixins/includes";
 @import "@/assets/scss/components/box";
 
 .trade-item {
@@ -38,11 +40,51 @@ const props = defineProps<{
     z-index: -1;
   }
 
+  @include media-breakpoint-down(desktop) {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+  }
+
   td {
     padding: 20px 20px 23px;
     font-size: 14px;
     font-weight: 500;
     vertical-align: middle;
+
+    @include media-breakpoint-down(desktop) {
+      padding: 15px;
+
+      &::before {
+        content: '#';
+        display: block;
+        font-size: 12px;
+        font-weight: 500;
+        color: $color-secondary;
+        margin-bottom: 10px;
+      }
+      &:nth-child(1)::before { opacity: 0; }
+      &:nth-child(2)::before { content: 'Дата'; }
+      &:nth-child(3)::before { content: 'Тип'; }
+      &:nth-child(4)::before { content: 'Наименование'; }
+      &:nth-child(6)::before { content: 'Продавец'; }
+      &:nth-child(7)::before { content: 'Статус'; }
+      &:nth-child(8)::before { content: 'Цена'; }
+    }
+  }
+
+  &__separator {
+    margin: 0 15px;
+    display: none;
+    grid-column: span 4;
+    height: 1px;
+    background: $color-secondary;
+    opacity: .2;
+    border-radius: 1px;
+    padding: 0 !important;
+    &::before { content: none !important; }
+    @include media-breakpoint-down(desktop) {
+      display: block;
+    }
   }
 
   &:not(&--declined) :is(&__type, &__name) {

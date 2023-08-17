@@ -1,12 +1,21 @@
+@import "../base/mixins/includes";
 
 .app {
   &__header {
     margin-bottom: 40px;
+
+    @include media-breakpoint-down(desktop) {
+      margin-bottom: 30px;
+    }
   }
   &__container {
     display: flex;
     align-items: flex-start;
     gap: 60px;
+
+    @include media-breakpoint-down(desktop) {
+      gap: 20px;
+    }
 
     main {
       flex: 1;
@@ -15,5 +24,9 @@
   &__sidebar {
     width: 320px;
     flex-shrink: 0;
+
+    @include media-breakpoint-down(desktop) {
+      width: 234px;
+    }
   }
 }

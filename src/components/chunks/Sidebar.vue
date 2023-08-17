@@ -28,12 +28,19 @@ const { user } = storeToRefs(useUserStore())
 
 <style scoped lang="scss">
 @import "@/assets/scss/base/settings";
+@import "@/assets/scss/base/mixins/includes";
 
 .sidebar {
   padding: 25px;
+  @include media-breakpoint-down(desktop) {
+    padding: 20px;
+  }
 
   &__nav {
     margin-top: 20px;
+    @include media-breakpoint-down(desktop) {
+      margin-top: 15px;
+    }
   }
 }
 </style>
