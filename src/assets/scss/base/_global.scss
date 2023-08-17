@@ -3,7 +3,6 @@
 * {
   font-family: $font-base;
   font-weight: 500;
-  color: $color-primary;
 }
 
 body {
@@ -14,6 +13,8 @@ body {
   background-repeat: no-repeat, no-repeat;
   background-position: 0 132px, top 402px right 0;
   background-size: 915px, 1012px;
+  color: $color-primary;
+  overflow-x: hidden;
 }
 
 .container {

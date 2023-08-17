@@ -3,7 +3,7 @@
     <div class="container">
       <h1 class="header__title page-title">Мой профиль</h1>
       <div v-if="user" class="header__additional">
-        <StatsItem label="Рейтинг">{{ user.rating }}</StatsItem>
+        <StatsItem label="Рейтинг">{{ user.rating }}<Stars /></StatsItem>
         <StatsItem label="Отзывов">{{ user.reviewCount }}</StatsItem>
         <StatsItem label="Сделок">
           <StatsItem label="Продаж" inner>{{ user.tradeCount.sell }}</StatsItem>
@@ -18,6 +18,7 @@
 import { storeToRefs } from 'pinia'
 import { useUserStore } from '@/stores/user'
 import StatsItem from '@/components/StatsItem.vue'
+import Stars from '@/components/Stars.vue'
 
 const { user } = storeToRefs(useUserStore())
 </script>
@@ -28,6 +29,8 @@ const { user } = storeToRefs(useUserStore())
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
   }
 
   &__additional {
