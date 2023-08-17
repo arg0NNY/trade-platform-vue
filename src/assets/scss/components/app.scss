@@ -1,0 +1,19 @@
+
+.app {
+  &__header {
+    margin-bottom: 40px;
+  }
+  &__container {
+    display: flex;
+    align-items: flex-start;
+    gap: 60px;
+
+    main {
+      flex: 1;
+    }
+  }
+  &__sidebar {
+    width: 320px;
+    flex-shrink: 0;
+  }
+}
