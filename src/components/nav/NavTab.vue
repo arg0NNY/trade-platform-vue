@@ -21,6 +21,10 @@ const props = defineProps<{
   @include media-breakpoint-down(desktop) {
     font-size: 14px;
   }
+  @include media-breakpoint-down(md) {
+    font-size: 12px;
+    padding: 15px 0;
+  }
 
   &--active {
     color: $color-primary;

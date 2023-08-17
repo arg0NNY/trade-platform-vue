@@ -39,6 +39,9 @@ const props = defineProps<{
   border-collapse: separate;
   border-spacing: 0 10px;
   margin-top: 20px;
+  @include media-breakpoint-down(desktop) {
+    margin-top: 10px;
+  }
 
   thead {
     @include media-breakpoint-down(desktop) {

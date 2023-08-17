@@ -29,6 +29,10 @@ const props = withDefaults(
       padding: 12px 20px;
       border-radius: 15px;
     }
+    @include media-breakpoint-down(md) {
+      padding: 9px 15px;
+      border-radius: 10px;
+    }
   }
   &, &__value {
     display: flex;
@@ -43,6 +47,9 @@ const props = withDefaults(
     @include media-breakpoint-down(desktop) {
       font-size: 14px;
     }
+    @include media-breakpoint-down(md) {
+      font-size: 12px;
+    }
   }
   &__value {
     font-size: 18px;
@@ -51,6 +58,9 @@ const props = withDefaults(
 
     @include media-breakpoint-down(desktop) {
       font-size: 16px;
+    }
+    @include media-breakpoint-down(md) {
+      font-size: 14px;
     }
   }
 }

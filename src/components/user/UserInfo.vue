@@ -12,7 +12,7 @@
     <div class="user-info__description">{{ user.description }}</div>
     <div class="user-info-reg">
       <div class="user-info-reg__label">Регистрация: {{ dayjs(user.createdAt).fromNow() }}</div>
-      <div class="user-info-reg__value">{{ dayjs(user.createdAt).format('D MMMM YYYY, в H:mm') }}</div>
+      <div class="user-info-reg__value">{{ dayjs(user.createdAt).format('D MMMM YYYY, в&nbsp;H:mm') }}</div>
     </div>
   </div>
 </template>
@@ -36,11 +36,17 @@ const props = defineProps<{
   display: grid;
   gap: 20px;
   color: $color-primary;
+  @include media-breakpoint-down(md) {
+    gap: 15px;
+  }
 
   &__main {
     display: flex;
     align-items: center;
     gap: 15px;
+    @include media-breakpoint-down(md) {
+      gap: 10px;
+    }
   }
   &__avatar {
     width: 70px;
@@ -53,6 +59,11 @@ const props = defineProps<{
       height: 50px;
       border-radius: 15px;
     }
+    @include media-breakpoint-down(md) {
+      width: 35px;
+      height: 35px;
+      border-radius: 10px;
+    }
 
     :deep(svg) {
       width: 34px;
@@ -62,12 +73,19 @@ const props = defineProps<{
         width: 24px;
         height: 24px;
       }
+      @include media-breakpoint-down(md) {
+        width: 17px;
+        height: 17px;
+      }
     }
   }
   &__content {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    @include media-breakpoint-down(md) {
+      gap: 7px;
+    }
   }
   &__username {
     font-size: 18px;
@@ -88,6 +106,9 @@ const props = defineProps<{
     border-radius: 15px;
     background: rgba(14, 9, 19, 0.50);
     padding: 15px;
+    @include media-breakpoint-down(md) {
+      padding: 10px 15px;
+    }
 
     &__label {
       font-size: 12px;
@@ -103,6 +124,10 @@ const props = defineProps<{
       font-size: 14px;
       font-weight: 500;
       line-height: 26px;
+      @include media-breakpoint-down(md) {
+        font-size: 12px;
+        line-height: 20px;
+      }
     }
   }
 }

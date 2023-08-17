@@ -39,10 +39,15 @@ const props = withDefaults(
     font-size: 14px;
     border-radius: 15px;
   }
+  @include media-breakpoint-down(md) {
+    padding: 15px 10px;
+    gap: 10px;
+  }
 
   :slotted(svg) {
     width: 15px;
     height: 15px;
+    flex-shrink: 0;
   }
 
   &--active {

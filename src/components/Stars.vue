@@ -20,6 +20,9 @@ import IconStar from '@/components/icons/IconStar.vue'
   @include media-breakpoint-down(desktop) {
     gap: 6px;
   }
+  @include media-breakpoint-down(md) {
+    gap: 4px;
+  }
 
   :deep(svg) {
     width: 18px;
@@ -27,6 +30,10 @@ import IconStar from '@/components/icons/IconStar.vue'
     @include media-breakpoint-down(desktop) {
       width: 13px;
       height: 13px;
+    }
+    @include media-breakpoint-down(md) {
+      width: 10px;
+      height: 10px;
     }
   }
 }

@@ -15,5 +15,10 @@
     padding-top: 20px;
     margin-bottom: 10px;
   }
+  @include media-breakpoint-down(md) {
+    padding-top: 0;
+    border-top: none;
+    margin-bottom: 5px;
+  }
 }
 </style>

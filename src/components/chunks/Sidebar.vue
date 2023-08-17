@@ -35,6 +35,9 @@ const { user } = storeToRefs(useUserStore())
   @include media-breakpoint-down(desktop) {
     padding: 20px;
   }
+  @include media-breakpoint-down(md) {
+    padding: 20px 15px;
+  }
 
   &__nav {
     margin-top: 20px;

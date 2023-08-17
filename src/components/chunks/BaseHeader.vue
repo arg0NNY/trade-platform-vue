@@ -46,6 +46,11 @@ const { user } = storeToRefs(useUserStore())
     @include media-breakpoint-down(desktop) {
       gap: 10px;
     }
+    @include media-breakpoint-down(md) {
+      > *:last-child > :deep(.stats-item__label) {
+        display: none;
+      }
+    }
   }
 }
 </style>

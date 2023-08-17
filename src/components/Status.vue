@@ -26,6 +26,9 @@ const props = defineProps<{
   @include media-breakpoint-down(desktop) {
     font-size: 12px;
   }
+  @include media-breakpoint-down(md) {
+    gap: 5px;
+  }
 
   &--success {
     color: $color-success;
