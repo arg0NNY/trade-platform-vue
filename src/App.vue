@@ -3,7 +3,7 @@
   <div class="container app__container">
     <Sidebar class="app__sidebar" />
     <main>
-
+      <RouterView />
     </main>
   </div>
 </template>
