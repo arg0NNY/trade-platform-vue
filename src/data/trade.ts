@@ -7,7 +7,7 @@ export const tradeTypeName = {
 export const tradeStatusName = {
   [TradeStatus.Confirmed]: 'Подтвержден',
   [TradeStatus.Paid]: 'Оплачен',
-  [TradeStatus.Completed]: 'Подтвержден',
+  [TradeStatus.Completed]: 'Выполнен',
   [TradeStatus.Declined]: 'Отклонен'
 } as const
 
