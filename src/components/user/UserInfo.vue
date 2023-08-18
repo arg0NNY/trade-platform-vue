@@ -14,7 +14,7 @@
     <template v-if="!compact">
       <div class="user-info__description">{{ user.description }}</div>
       <div class="user-info-reg">
-        <div class="user-info-reg__label">Регистрация: {{ dayjs(user.createdAt).fromNow() }}</div>
+        <div class="user-info-reg__label">Регистрация: {{ dayjs(user.createdAt).fromNow?.() }}</div>
         <div class="user-info-reg__value">{{ dayjs(user.createdAt).format('D MMMM YYYY, в&nbsp;H:mm') }}</div>
       </div>
     </template>

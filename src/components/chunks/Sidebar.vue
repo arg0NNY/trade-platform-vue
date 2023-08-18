@@ -1,9 +1,9 @@
 <template>
   <aside class="sidebar box">
     <UserInfo :user="user" :compact="reduced">
-      <button class="sidebar__btn" :class="{ 'sidebar__btn--active': reduced }" @click="reduced = !reduced"><IconChevronUp /></button>
+      <button class="sidebar__btn" :class="{ 'sidebar__btn--active': reduced }" @click="reduced = !reduced" data-test="reduce-btn"><IconChevronUp /></button>
     </UserInfo>
-    <NavList v-if="!reduced" class="sidebar__nav">
+    <NavList v-if="!reduced" class="sidebar__nav" data-test="nav">
       <NavItem :to="{ name: 'home' }"><IconMenu />Сделки</NavItem>
       <NavItem :to="{ name: 'posts' }"><IconPlus />Объявления</NavItem>
       <NavItem :to="{ name: 'reviews' }"><IconComment />Отзывы</NavItem>
