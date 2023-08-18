@@ -62,6 +62,9 @@ const props = withDefaults(
     @include media-breakpoint-down(md) {
       font-size: 14px;
     }
+    @include media-breakpoint-down(sm) {
+      font-size: 13px;
+    }
   }
 }
 </style>

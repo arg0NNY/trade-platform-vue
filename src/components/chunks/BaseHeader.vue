@@ -43,6 +43,7 @@ const { user } = storeToRefs(useUserStore())
     display: flex;
     gap: 15px;
     align-items: center;
+    flex-wrap: wrap;
     @include media-breakpoint-down(desktop) {
       gap: 10px;
     }

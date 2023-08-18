@@ -1,7 +1,9 @@
 <template>
   <aside class="sidebar box">
-    <UserInfo :user="user" />
-    <NavList class="sidebar__nav">
+    <UserInfo :user="user" :compact="reduced">
+      <button class="sidebar__btn" :class="{ 'sidebar__btn--active': reduced }" @click="reduced = !reduced"><IconChevronUp /></button>
+    </UserInfo>
+    <NavList v-if="!reduced" class="sidebar__nav">
       <NavItem :to="{ name: 'home' }"><IconMenu />Сделки</NavItem>
       <NavItem :to="{ name: 'posts' }"><IconPlus />Объявления</NavItem>
       <NavItem :to="{ name: 'reviews' }"><IconComment />Отзывы</NavItem>
@@ -22,8 +24,12 @@ import IconPlus from '@/components/icons/IconPlus.vue'
 import IconComment from '@/components/icons/IconComment.vue'
 import IconUser from '@/components/icons/IconUser.vue'
 import IconLogout from '@/components/icons/IconLogout.vue'
+import IconChevronUp from '@/components/icons/IconChevronUp.vue'
+import { ref } from 'vue'
 
 const { user } = storeToRefs(useUserStore())
+
+const reduced = ref(false)
 </script>
 
 <style scoped lang="scss">
@@ -35,7 +41,7 @@ const { user } = storeToRefs(useUserStore())
   @include media-breakpoint-down(desktop) {
     padding: 20px;
   }
-  @include media-breakpoint-down(md) {
+  @include media-breakpoint-only(md) {
     padding: 20px 15px;
   }
 
@@ -43,6 +49,28 @@ const { user } = storeToRefs(useUserStore())
     margin-top: 20px;
     @include media-breakpoint-down(desktop) {
       margin-top: 15px;
+    }
+    @include media-breakpoint-down(sm) {
+      margin-top: 10px;
+    }
+  }
+
+  &__btn {
+    display: none;
+    width: 50px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    color: $color-secondary;
+    margin-left: auto;
+    margin-right: -20px;
+
+    &--active svg {
+      transform: rotate(180deg);
+    }
+
+    @include media-breakpoint-down(sm) {
+      display: flex;
     }
   }
 }

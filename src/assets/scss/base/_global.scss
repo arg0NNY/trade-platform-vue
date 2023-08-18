@@ -26,6 +26,10 @@ body {
     padding: 98px 0;
     background-position: 0 302px, top 387px right 0;
   }
+  @include media-breakpoint-down(sm) {
+    padding: 125px 0;
+    background-position: 0 125px, top 928px right 0;
+  }
 }
 
 .container {
@@ -42,6 +46,6 @@ body {
     max-width: 738px;
   }
   @include media-breakpoint-down(sm) {
-    max-width: 430px;
+    max-width: min(430px, 100%);
   }
 }

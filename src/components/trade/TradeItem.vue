@@ -43,6 +43,7 @@ const props = defineProps<{
   @include media-breakpoint-down(desktop) {
     display: grid;
     grid-template-columns: repeat(4, auto);
+    padding: 5px;
   }
 
   td {
@@ -52,7 +53,7 @@ const props = defineProps<{
     vertical-align: middle;
 
     @include media-breakpoint-down(desktop) {
-      padding: 15px;
+      padding: 10px;
 
       &::before {
         content: '#';
@@ -61,6 +62,10 @@ const props = defineProps<{
         font-weight: 500;
         color: $color-secondary;
         margin-bottom: 10px;
+
+        @include media-breakpoint-down(md) {
+          margin-bottom: 5px;
+        }
       }
       &:nth-child(1)::before { opacity: 0; }
       &:nth-child(2)::before { content: 'Дата'; }
@@ -70,10 +75,16 @@ const props = defineProps<{
       &:nth-child(7)::before { content: 'Статус'; }
       &:nth-child(8)::before { content: 'Цена'; }
     }
+    @include media-breakpoint-down(md) {
+      font-size: 12px;
+    }
+    @include media-breakpoint-down(sm) {
+      &:nth-child(4)::before { content: 'Наимен.'; }
+    }
   }
 
   &__separator {
-    margin: 0 15px;
+    margin: 0 10px;
     display: none;
     grid-column: span 4;
     height: 1px;
@@ -99,6 +110,11 @@ const props = defineProps<{
       font-weight: 600;
       letter-spacing: 1.2px;
       text-transform: uppercase;
+
+      @include media-breakpoint-down(md) {
+        font-size: 10px;
+        letter-spacing: 1px;
+      }
     }
   }
   &__price {
@@ -107,6 +123,10 @@ const props = defineProps<{
       font-size: 12px;
       font-weight: 500;
       color: $color-secondary;
+
+      @include media-breakpoint-down(md) {
+        font-size: 10px;
+      }
     }
   }
 

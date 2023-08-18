@@ -8,12 +8,16 @@
         <div class="user-info__username">{{ user.username }}</div>
         <OnlineStatus :online="user.isOnline" />
       </div>
+      <div v-if="compact" class="user-info__description">{{ user.description }}</div>
+      <slot />
     </div>
-    <div class="user-info__description">{{ user.description }}</div>
-    <div class="user-info-reg">
-      <div class="user-info-reg__label">Регистрация: {{ dayjs(user.createdAt).fromNow() }}</div>
-      <div class="user-info-reg__value">{{ dayjs(user.createdAt).format('D MMMM YYYY, в&nbsp;H:mm') }}</div>
-    </div>
+    <template v-if="!compact">
+      <div class="user-info__description">{{ user.description }}</div>
+      <div class="user-info-reg">
+        <div class="user-info-reg__label">Регистрация: {{ dayjs(user.createdAt).fromNow() }}</div>
+        <div class="user-info-reg__value">{{ dayjs(user.createdAt).format('D MMMM YYYY, в&nbsp;H:mm') }}</div>
+      </div>
+    </template>
   </div>
 </template>
 
@@ -24,7 +28,8 @@ import OnlineStatus from '@/components/user/OnlineStatus.vue'
 import dayjs from 'dayjs'
 
 const props = defineProps<{
-  user: User
+  user: User,
+  compact?: boolean
 }>()
 </script>
 
@@ -47,6 +52,16 @@ const props = defineProps<{
     @include media-breakpoint-down(md) {
       gap: 10px;
     }
+
+    .user-info__description {
+      margin-left: auto;
+      flex: 1;
+      max-width: 144px;
+      display: -webkit-box;
+      line-clamp: 2;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
   &__avatar {
     width: 70px;
@@ -59,7 +74,7 @@ const props = defineProps<{
       height: 50px;
       border-radius: 15px;
     }
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-only(md) {
       width: 35px;
       height: 35px;
       border-radius: 10px;
@@ -73,7 +88,7 @@ const props = defineProps<{
         width: 24px;
         height: 24px;
       }
-      @include media-breakpoint-down(md) {
+      @include media-breakpoint-only(md) {
         width: 17px;
         height: 17px;
       }
@@ -93,6 +108,9 @@ const props = defineProps<{
     @include media-breakpoint-down(desktop) {
       font-size: 14px;
     }
+    @include media-breakpoint-down(sm) {
+      font-size: 13px;
+    }
   }
   &__description {
     font-size: 14px;
@@ -106,8 +124,12 @@ const props = defineProps<{
     border-radius: 15px;
     background: rgba(14, 9, 19, 0.50);
     padding: 15px;
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-only(md) {
       padding: 10px 15px;
+    }
+    @include media-breakpoint-down(sm) {
+      display: flex;
+      gap: 5px;
     }
 
     &__label {
