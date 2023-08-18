@@ -31,6 +31,7 @@ const props = withDefaults(
   align-items: center;
   gap: 15px;
   color: $color-secondary;
+  transition: .2s color;
   font-size: 16px;
   font-weight: 500;
   width: 100%;
@@ -48,12 +49,16 @@ const props = withDefaults(
     width: 15px;
     height: 15px;
     flex-shrink: 0;
+    color: $color-secondary;
+    transition: .2s color;
   }
 
-  &--active {
-    cursor: default;
+  &:hover, &--active {
     color: $color-primary;
     :slotted(svg) { color: $color-accent; }
+  }
+  &--active {
+    cursor: default;
     &::after {
       content: '';
       position: absolute;
@@ -67,7 +72,7 @@ const props = withDefaults(
     }
   }
   &--danger {
-    color: $color-danger;
+    &, :deep(*) { color: $color-danger !important; }
   }
 }
 </style>

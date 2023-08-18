@@ -16,6 +16,7 @@ const props = defineProps<{
   font-size: 16px;
   font-weight: 500;
   color: $color-secondary;
+  transition: .2s color;
   padding: 20px 0;
   position: relative;
   @include media-breakpoint-down(desktop) {
@@ -24,6 +25,9 @@ const props = defineProps<{
   @include media-breakpoint-down(md) {
     font-size: 12px;
     padding: 15px 0;
+  }
+  &:hover {
+    color: $color-primary;
   }
 
   &--active {
