@@ -24,7 +24,7 @@ const tab = computed({
 })
 
 const trades = ref(mockupTradesData)
-const sortedTrades = computed(() => trades.value.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)))
+const sortedTrades = computed(() => trades.value.sort((a, b) => new Date(b.createdAt).valueOf() - new Date(a.createdAt).valueOf()))
 </script>
 
 <style scoped lang="scss">

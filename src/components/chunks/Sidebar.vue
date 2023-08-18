@@ -1,6 +1,6 @@
 <template>
   <aside class="sidebar box">
-    <UserInfo :user="user" :compact="reduced">
+    <UserInfo v-if="user" :user="user" :compact="reduced">
       <button class="sidebar__btn" :class="{ 'sidebar__btn--active': reduced }" @click="reduced = !reduced" data-test="reduce-btn"><IconChevronUp /></button>
     </UserInfo>
     <NavList v-if="!reduced" class="sidebar__nav" data-test="nav">
@@ -13,7 +13,7 @@
   </aside>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import { useUserStore } from '@/stores/user'
 import UserInfo from '@/components/user/UserInfo.vue'

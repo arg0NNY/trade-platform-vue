@@ -23,7 +23,7 @@ const props = defineProps<{
   active?: Tab['key'] | null
 }>()
 const emit = defineEmits<{
-  'update:active': [Tab['key']]
+  'update:active': [Tab['key'] | null | undefined]
 }>()
 
 const active = computed({
