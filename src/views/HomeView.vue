@@ -4,7 +4,8 @@
     { key: 'buy', label: 'Покупки' },
     { key: 'sell', label: 'Продажи' }
   ]" v-model:active="tab" />
-  <TradeList :trades="sortedTrades" />
+  <TradeList v-if="sortedTrades?.length" :trades="sortedTrades" />
+  <div v-else class="no-items">Список пуст ...</div>
 </template>
 
 <script setup lang="ts">
@@ -25,3 +26,26 @@ const tab = computed({
 const trades = ref(mockupTradesData)
 const sortedTrades = computed(() => trades.value.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)))
 </script>
+
+<style scoped lang="scss">
+@import "@/assets/scss/base/settings";
+@import "@/assets/scss/base/mixins/includes";
+
+.no-items {
+  font-size: 18px;
+  font-weight: 700;
+  color: $color-primary;
+  margin-top: 40px;
+
+  @include media-breakpoint-down(desktop) {
+    font-size: 16px;
+    margin-top: 20px;
+  }
+  @include media-breakpoint-down(md) {
+    font-size: 14px;
+  }
+  @include media-breakpoint-down(sm) {
+    font-size: 13px;
+  }
+}
+</style>
